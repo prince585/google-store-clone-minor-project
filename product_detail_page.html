@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Pixel 8 Pro - Google Store Clone</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#137fec",
+                "background-light": "#f6f7f8",
+                "background-dark": "#101922",
+                "surface-light": "#ffffff",
+                "surface-dark": "#182431",
+                "text-primary-light": "#0d141b",
+                "text-primary-dark": "#f0f6fc",
+                "text-secondary-light": "#4c739a",
+                "text-secondary-dark": "#9fb3c8",
+                "border-light": "#e7edf3",
+                "border-dark": "#314357"
+              },
+              fontFamily: {
+                "display": ["Space Grotesk", "sans-serif"]
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-text-primary-light dark:text-text-primary-dark">
+<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="sticky top-0 z-50 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-sm border-b border-border-light dark:border-border-dark">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between whitespace-nowrap h-16">
+                    <div class="flex items-center gap-8">
+                        <div class="flex items-center gap-2 text-text-primary-light dark:text-text-primary-dark">
+                            <svg class="h-6 w-6 text-primary" fill="none" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M13.8261 17.4264C16.7203 18.1174 20.2244 18.5217 24 18.5217C27.7756 18.5217 31.2797 18.1174 34.1739 17.4264C36.9144 16.7722 39.9967 15.2331 41.3563 14.1648L24.8486 40.6391C24.4571 41.267 23.5429 41.267 23.1514 40.6391L6.64374 14.1648C8.00331 15.2331 11.0856 16.7722 13.8261 17.4264Z" fill="currentColor"></path>
+                                <path clip-rule="evenodd" d="M39.998 12.236C39.9944 12.2537 39.9875 12.2845 39.9748 12.3294C39.9436 12.4399 39.8949 12.5741 39.8346 12.7175C39.8168 12.7597 39.7989 12.8007 39.7813 12.8398C38.5103 13.7113 35.9788 14.9393 33.7095 15.4811C30.9875 16.131 27.6413 16.5217 24 16.5217C20.3587 16.5217 17.0125 16.131 14.2905 15.4811C12.0012 14.9346 9.44505 13.6897 8.18538 12.8168C8.17384 12.7925 8.16216 12.767 8.15052 12.7408C8.09919 12.6249 8.05721 12.5114 8.02977 12.411C8.00356 12.3152 8.00039 12.2667 8.00004 12.2612C8.00004 12.261 8 12.2607 8.00004 12.2612C8.00004 12.2359 8.0104 11.9233 8.68485 11.3686C9.34546 10.8254 10.4222 10.2469 11.9291 9.72276C14.9242 8.68098 19.1919 8 24 8C28.8081 8 33.0758 8.68098 36.0709 9.72276C37.5778 10.2469 38.6545 10.8254 39.3151 11.3686C39.9006 11.8501 39.9857 12.1489 39.998 12.236ZM4.95178 15.2312L21.4543 41.6973C22.6288 43.5809 25.3712 43.5809 26.5457 41.6973L43.0534 15.223C43.0709 15.1948 43.0878 15.1662 43.104 15.1371L41.3563 14.1648C43.104 15.1371 43.1038 15.1374 43.104 15.1371L43.1051 15.135L43.1065 15.1325L43.1101 15.1261L43.1199 15.1082C43.1276 15.094 43.1377 15.0754 43.1497 15.0527C43.1738 15.0075 43.2062 14.9455 43.244 14.8701C43.319 14.7208 43.4196 14.511 43.5217 14.2683C43.6901 13.8679 44 13.0689 44 12.2609C44 10.5573 43.003 9.22254 41.8558 8.2791C40.6947 7.32427 39.1354 6.55361 37.385 5.94477C33.8654 4.72057 29.133 4 24 4C18.867 4 14.1346 4.72057 10.615 5.94478C8.86463 6.55361 7.30529 7.32428 6.14419 8.27911C4.99695 9.22255 3.99999 10.5573 3.99999 12.2609C3.99999 13.1275 4.29264 13.9078 4.49321 14.3607C4.60375 14.6102 4.71348 14.8196 4.79687 14.9689C4.83898 15.0444 4.87547 15.1065 4.9035 15.1529C4.91754 15.1762 4.92954 15.1957 4.93916 15.2111L4.94662 15.223L4.95178 15.2312ZM35.9868 18.996L24 38.22L12.0131 18.996C12.4661 19.1391 12.9179 19.2658 13.3617 19.3718C16.4281 20.1039 20.0901 20.5217 24 20.5217C27.9099 20.5217 31.5719 20.1039 34.6383 19.3718C35.082 19.2658 35.5339 19.1391 35.9868 18.996Z" fill="currentColor" fill-rule="evenodd"></path>
+                            </svg>
+                            <h2 class="text-lg font-bold">Store</h2>
+                        </div>
+                        <nav class="hidden md:flex items-center gap-8">
+                            <a class="text-sm font-medium hover:text-primary" href="#">Phones</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Earbuds</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Watches</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Smart Home</a>
+                            <a class="text-sm font-medium hover:text-primary" href="#">Deals</a>
+                        </nav>
+                    </div>
+                    <div class="flex flex-1 justify-end items-center gap-4">
+                        <label class="relative hidden sm:block">
+                            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-text-secondary-light dark:text-text-secondary-dark">search</span>
+                            <input class="form-input w-full min-w-0 flex-1 resize-none overflow-hidden rounded-full text-sm h-10 border-none bg-background-light dark:bg-background-dark placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark pl-10 focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface-light dark:focus:ring-offset-surface-dark" placeholder="Search Store" value=""/>
+                        </label>
+                        <div class="flex gap-1">
+                            <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-transparent hover:bg-primary/10 text-text-primary-light dark:text-text-primary-dark">
+                                <span class="material-symbols-outlined">help</span>
+                            </button>
+                            <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-transparent hover:bg-primary/10 text-text-primary-light dark:text-text-primary-dark">
+                                <span class="material-symbols-outlined">account_circle</span>
+                            </button>
+                            <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-transparent hover:bg-primary/10 text-text-primary-light dark:text-text-primary-dark">
+                                <span class="material-symbols-outlined">shopping_cart</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main class="flex-1">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+                <div class="flex flex-wrap gap-2 text-sm mb-6">
+                    <a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary" href="#">Home</a>
+                    <span class="text-text-secondary-light dark:text-text-secondary-dark">/</span>
+                    <a class="text-text-secondary-light dark:text-text-secondary-dark hover:text-primary" href="#">Phones</a>
+                    <span class="text-text-secondary-light dark:text-text-secondary-dark">/</span>
+                    <span class="font-medium text-text-primary-light dark:text-text-primary-dark">Pixel 8 Pro</span>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                    <!-- Product Image Gallery -->
+                    <div class="flex flex-col-reverse md:flex-row gap-4">
+                        <div class="flex md:flex-col gap-3">
+                            <div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg cursor-pointer border-2 border-primary" data-alt="Pixel 8 Pro in Porcelain, front view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA1xSuLE-NCWWRBoosRgHFljYuLS_FFBXNqOIXOfKJEzdMGO7vToZ_HkKrN7nCzCR4FYNMkZ8uO8jFRDjwlIhd3pLOXNjazXQ_xfuous4Jd-L6Dz3ecIpkH9NSCjsg7WhOfav7ZkCd2A9r5EoanYIxKrx2TGbJyvykavPBwaYGuMhNqy4BTYnYfbioHXRvAB6N842PRDSJknSiG-KtMul3Llsenggty3kBQ3hs5Rq2xmKsGBoHQlxJgRhNQbsFa86XaspGuZV50gp4");'></div>
+                            <div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg cursor-pointer border border-border-light dark:border-border-dark hover:border-primary" data-alt="Pixel 8 Pro in Porcelain, side view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhYxRqri6vE4ZX9DyWsJwnKH665jEoXqx7sCIB6DTTIClGsILX6xuYq0apiAra33ImWHiK7aImVVINHBX7zaan_iR1_WAcweRaJ3P9PK4oiy5zFbohHSuv7gvSbStDm14OE-iIVvGiFia31HUWVc1R923bLekJ5O907XXDO79sxQJsyV358k9silw7UZfez2SOpspifoU2ZZqmvUYGr9CJbFAB236xqnoXsL1GYvss1E1SSM_ZC8WWaRoPuWvCMVwbcL3IUVdZLqc");'></div>
+                            <div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg cursor-pointer border border-border-light dark:border-border-dark hover:border-primary" data-alt="Pixel 8 Pro in Porcelain, back view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDxC7OdtiC0V6wx09MvG4gSqh_wGGxXh2uWBEI6RQCG2JuRld99XhdcHROLa96BaRUt4koz3dC8ILNSTGemsAb55SCH4_6vQYte2Q-Fl3LEaCMO4EtENWJpQG_vDN_tMFYzmMyg4I0OCbl5EPIJxL6AufHNUdG2AWByx629Sd1mBNBHrkholhSXwiNflUfGjnGkvLIme16rcf5Fe2GyD6BbE-bfD83V2wx5GUQvu9OjQll-LZIAILC7oM-8F6cfytNY_x3l1W9dEyA");'></div>
+                            <div class="w-16 h-16 bg-center bg-no-repeat bg-cover rounded-lg cursor-pointer border border-border-light dark:border-border-dark hover:border-primary" data-alt="Pixel 8 Pro camera detail" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDXr5NP_xjBqADvrFC8L1quCLU1BUl3Wh6sOExIoqHYh-MdGn_Myvr8I4WmV0tZOI0qoerJgQ1Ta0rhSU6SuTKphANLUnpIZakjIA9GC-ZYeN5UymAEAey8LSpDSE2izwo3P4pTd5kx0mgdoFAtJ9pb6-McWkef-rf8MUFLbz5NgvU2RaUo5PB3YZ1b8w4InzlH4rCyKaCqkQf48ERN494VzQhpDA6bU4uhJ-pPgYfDi1731aOkxc9XjAdIXXetPFo52fRyMqoDDp4");'></div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="w-full bg-center bg-no-repeat bg-cover aspect-square rounded-xl bg-surface-light dark:bg-surface-dark p-4" data-alt="Pixel 8 Pro in Porcelain, large view" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCZaUEklfhTMAwnuGMxxaJi8PFebVb4Bx82rPzoCcS1p8nkwN_upjrAm9xbuwtIwUZgHjJgtntmn6fo_s_D7PZZG4ANUo_DviPw3xHk_d8EUpIuNVzeuDttcKD8HywYyun59P6CtychU27ZhqSzpvAjwbtRmrtmU7HhGkGzL3S_eoFaqTI77KnAwTbzKfjID1b4beOfm7mHl73aF3UViqIge-qJCkcSzbNZigXSRhGOUnvFvwyMZd2GK04d1CFWNQ0GNTjMgKzfklA");'></div>
+                        </div>
+                    </div>
+                    <!-- Product Information -->
+                    <div class="flex flex-col gap-6">
+                        <h1 class="text-4xl font-bold tracking-tight">Pixel 8 Pro</h1>
+                        <p class="text-3xl font-medium">$999.00</p>
+                        <p class="text-base text-text-secondary-light dark:text-text-secondary-dark">The most powerful and helpful Google Pixel yet, with an amazing camera, powerful security, and an all-day battery.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="text-sm font-medium">Color: <span class="font-normal text-text-secondary-light dark:text-text-secondary-dark">Porcelain</span></h3>
+                                <div class="flex gap-2 mt-2">
+                                    <button class="w-8 h-8 rounded-full bg-[#EAE8E2] ring-2 ring-primary ring-offset-2 ring-offset-background-light dark:ring-offset-background-dark"></button>
+                                    <button class="w-8 h-8 rounded-full bg-[#1A232E] hover:ring-2 hover:ring-primary"></button>
+                                    <button class="w-8 h-8 rounded-full bg-[#A5C3D4] hover:ring-2 hover:ring-primary"></button>
+                                </div>
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-medium">Storage</h3>
+                                <div class="grid grid-cols-2 gap-3 mt-2">
+                                    <button class="px-4 py-3 rounded-lg border-2 border-primary bg-primary/10 text-sm font-semibold">128 GB</button>
+                                    <button class="px-4 py-3 rounded-lg border border-border-light dark:border-border-dark hover:border-primary text-sm font-semibold">256 GB</button>
+                                    <button class="px-4 py-3 rounded-lg border border-border-light dark:border-border-dark hover:border-primary text-sm font-semibold">512 GB</button>
+                                    <button class="px-4 py-3 rounded-lg border border-border-light dark:border-border-dark hover:border-primary text-sm font-semibold">1 TB</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <div class="flex items-center rounded-lg border border-border-light dark:border-border-dark">
+                                <button class="px-3 py-3 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary">-</button>
+                                <span class="px-2 font-medium">1</span>
+                                <button class="px-3 py-3 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary">+</button>
+                            </div>
+                            <button class="flex-1 flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 bg-primary text-white gap-2 text-base font-bold leading-normal tracking-wide hover:opacity-90">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Detailed Information Section -->
+                <div class="mt-16 lg:mt-24">
+                    <div class="border-b border-border-light dark:border-border-dark">
+                        <nav aria-label="Tabs" class="flex -mb-px gap-6">
+                            <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-base text-primary border-primary" href="#">Specifications</a>
+                            <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-base text-text-secondary-light dark:text-text-secondary-dark border-transparent hover:text-primary hover:border-primary" href="#">Reviews</a>
+                            <a class="whitespace-nowrap py-4 px-1 border-b-2 font-medium text-base text-text-secondary-light dark:text-text-secondary-dark border-transparent hover:text-primary hover:border-primary" href="#">Related Products</a>
+                        </nav>
+                    </div>
+                    <div class="py-10">
+                        <h2 class="text-2xl font-bold mb-6">Tech Specs</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-6 text-sm">
+                            <div>
+                                <h3 class="font-semibold">Display</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">6.7-inch Super Actua display with LTPO OLED</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Processor</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">Google Tensor G3, Titan M2 security coprocessor</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Rear Camera</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">50 MP Octa PD wide, 48 MP Quad PD ultrawide, 48 MP Quad PD telephoto</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Front Camera</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">10.5 MP Dual PD selfie camera</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Battery and Charging</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">5,050 mAh, Fast charging, Wireless charging</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold">Memory and Storage</h3>
+                                <p class="text-text-secondary-light dark:text-text-secondary-dark mt-1">12 GB LPDDR5X RAM, 128/256/512 GB / 1 TB UFS 3.1 storage</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Related Products Section -->
+                <div class="mt-16">
+                    <div class="flex flex-wrap justify-between gap-3 items-baseline mb-6">
+                        <h2 class="text-2xl font-bold">You might also like</h2>
+                        <a class="text-sm font-medium text-primary hover:underline" href="#">View all</a>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                        <div class="flex flex-col gap-3 group">
+                            <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-surface-light dark:bg-surface-dark p-4 group-hover:opacity-90" data-alt="Pixel Watch 2" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC9gupaQKs9BLX9cg6RvDRHAbPThXXyNHnYBpHI6Qd2XxjS9RLPv-EPZwp4bipYA270pwzqdjqZqO-ZOePJxuh7A_IKzlfn8NBL_evuUECsRHdJfMAk1UBGPEmzRmazkPOEJlaLS7wFjg61i9p4vjdQlokUFXHxthN-X9egDp0y469Uh2EPJXhDuHV-n36zxErDLxssFrfyoQdvXmLJgP5q17G2fBaICW5Lj56xRJLPK3YRWME6NzmK5mBb0vooZafVjT5Wha8EnWU");'></div>
+                            <div class="flex flex-col items-start">
+                                <h3 class="font-semibold text-base">Pixel Watch 2</h3>
+                                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">From $349.99</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 group">
+                            <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-surface-light dark:bg-surface-dark p-4 group-hover:opacity-90" data-alt="Pixel Buds Pro" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAG-4q3KGnCtJCFUA7n8rF_wqsNGLd4ac2L6p8pU_uEJV9AC09Lb-UQ9iuPtjXM78sUDsJjRTXzECxFfT2pl5mPnxSlenW5PxaHpdEHUf0O47lOY6qfEnTXLLDQMtfkC1Ae0C1xQZj4722leofeY0MGLVfCpEvop1FD-kKwm7I85_cWeyMJmVpASaCFrGMilsHiS3nKXe6gHNmAo44Nytlo7iDdvjPGBMU8lVmBmHsPhdyCFMFTlcp1sdWjFFvnKaaPdhxHST54CO0");'></div>
+                            <div class="flex flex-col items-start">
+                                <h3 class="font-semibold text-base">Pixel Buds Pro</h3>
+                                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">$199.99</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 group">
+                            <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-surface-light dark:bg-surface-dark p-4 group-hover:opacity-90" data-alt="Pixel Tablet" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCExuAH_Afvtu8M0f5ccK3MsarsrpWLm3DXfK0I_u1afkwPshTAohIAYupr5NcyEEmEwmGLCDcPc_Fp_5lT20p2wpokCwIfUZQfCVnzEnZNrjkEyOLTJuLMxumdPA4eeM4bZYur9_AYykmrjQUTInvDHW7R-ZQwW1unmxprA_u0opobG1FgtA-1VPpUdSgdyrVpBTf1_vZfdzj1VxMXOT9HCVwALld-f-T0Mi2jvZkOdxRVduwMRVxoMe0bgpchwec_8LVtnry-6_A");'></div>
+                            <div class="flex flex-col items-start">
+                                <h3 class="font-semibold text-base">Pixel Tablet</h3>
+                                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">From $499</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-3 group">
+                            <div class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl bg-surface-light dark:bg-surface-dark p-4 group-hover:opacity-90" data-alt="Pixel 8 Pro Case" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAnuajQMOrr_witiKYuvJDtfOpMvV2GtRU8eMS3fhkNxDKk3UhVRhsLk6c9dTawyL8TZQlshUzPelRGvlp5ZIsuO8-DbGORI1-zTa1kntBLaAWJDELC-laTu1sv0haeIFNhzmsxGpUrfoPSaXa09GDA4yL1eqy3ZDJtVTt9WrnuEaWa-BsJ6Tglb5yLeykt1SmYDPsmHqfj2NTU5DegFgRrWs0tQV7jXlZsZ_C3NOOIzP8Uzt1r7dAflbREkOnXCfpHI1o_OV-UdDo");'></div>
+                            <div class="flex flex-col items-start">
+                                <h3 class="font-semibold text-base">Pixel 8 Pro Case</h3>
+                                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">$34.99</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body></html>

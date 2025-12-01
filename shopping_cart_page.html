@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Shopping Cart - Google Store</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings:
+                'FILL' 0,
+                'wght' 400,
+                'GRAD' 0,
+                'opsz' 24
+        }
+    </style>
+</head>
+<body class="font-display bg-background-light dark:bg-background-dark text-[#202124] dark:text-gray-200">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+    <header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-700 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-2 text-xl font-bold">
+                        <span class="material-symbols-outlined text-primary text-3xl">store</span>
+                        <h2 class="hidden sm:block">Store</h2>
+                    </div>
+                    <nav class="hidden lg:flex items-center gap-6">
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Phones</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Earbuds</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Watches</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Smart Home</a>
+                        <a class="text-sm font-medium hover:text-primary dark:hover:text-primary transition-colors" href="#">Laptops</a>
+                    </nav>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <button class="relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <span class="material-symbols-outlined">shopping_cart</span>
+                        <span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</span>
+                    </button>
+                    <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <span class="material-symbols-outlined">account_circle</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+        <div class="mb-8">
+            <p class="text-4xl font-black leading-tight tracking-tight text-[#202124] dark:text-gray-100">Your Cart</p>
+        </div>
+        <div class="grid grid-cols-1 gap-12 lg:grid-cols-3">
+            <section class="lg:col-span-2">
+                <div class="space-y-6">
+                    <div class="flex flex-col sm:flex-row gap-6 border-b border-gray-200 dark:border-gray-700 pb-6">
+                        <div class="w-full sm:w-32 h-32 flex-shrink-0">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg h-full w-full" data-alt="Pixel 8 Pro in Obsidian" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5uIS4DcWgCJTalIyyuSDmdGOjOxRGoR4o9H4igFuzTCVhP4ZWRITuWgLnmSOJ0GsRUvhklDw1qKmAcXpKi52IRCuPAVQ0JQKfLp665KvlLDG1tPoqpN1IBqPyRJ29nFUJpXa9-rc_OjbkkhgRncbLYwNrje9FQf-a2594duPztYma3IXkmzZwyryHYhHh2VekKtNdKnTg-Yefcjxlu1bVUjop5pGarlXZQX9-_z7gsaPSL1brugzavjGq9bH8R6H4u9-j4lc9r-w");'></div>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <p class="text-lg font-medium leading-normal text-[#202124] dark:text-gray-100">Pixel 8 Pro</p>
+                                    <p class="text-lg font-medium leading-normal text-[#202124] dark:text-gray-100">$999.00</p>
+                                </div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Color: Obsidian, Storage: 128 GB</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center gap-2">
+                                    <button aria-label="Decrease quantity" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">-</button>
+                                    <input class="w-10 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 border-none text-base" readonly="" type="number" value="1"/>
+                                    <button aria-label="Increase quantity" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">+</button>
+                                </div>
+                                <button class="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                                    <span class="material-symbols-outlined text-base">delete</span>
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-6 border-b border-gray-200 dark:border-gray-700 pb-6">
+                        <div class="w-full sm:w-32 h-32 flex-shrink-0">
+                            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-lg h-full w-full" data-alt="Pixel Buds Pro in Charcoal" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAxk7vSJGNfhjP0IVZvN5vkiSAc3xlXSO0ZQYmHJVp9dmPF3r8ggnCfWKcHn1KuRuMB0qrstgYOQqDFY4ccKU4DO1LzNgxrJjfXywA2ai7H-nuHNtZY9XwvZ1Soe_QxgvWbeXcMR5izS608bWlkSFaL82NEwVuVUpw7yrQRT09hIFcRhc5XQ48sTduMk12_7rRavEDj6sxrBvpxKDSIONsbkKsL7fWlUK-Xm5oCZDWl28cZlOP_m-T7UMuPPPz_HvXbNY-l_tzu0M4");'></div>
+                        </div>
+                        <div class="flex flex-1 flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-start">
+                                    <p class="text-lg font-medium leading-normal text-[#202124] dark:text-gray-100">Pixel Buds Pro</p>
+                                    <p class="text-lg font-medium leading-normal text-[#202124] dark:text-gray-100">$199.99</p>
+                                </div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Color: Charcoal</p>
+                            </div>
+                            <div class="flex items-center justify-between mt-4">
+                                <div class="flex items-center gap-2">
+                                    <button aria-label="Decrease quantity" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">-</button>
+                                    <input class="w-10 p-0 text-center bg-transparent focus:outline-0 focus:ring-0 border-none text-base" readonly="" type="number" value="1"/>
+                                    <button aria-label="Increase quantity" class="flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 dark:border-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">+</button>
+                                </div>
+                                <button class="flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-400 hover:text-red-500 dark:hover:text-red-400 transition-colors">
+                                    <span class="material-symbols-outlined text-base">delete</span>
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <aside class="lg:col-span-1">
+                <div class="sticky top-28 p-6 bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+                    <h2 class="text-xl font-bold mb-4 text-[#202124] dark:text-gray-100">Order Summary</h2>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between">
+                            <p class="text-gray-500 dark:text-gray-400">Subtotal</p>
+                            <p class="font-medium text-[#202124] dark:text-gray-200">$1198.99</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="text-gray-500 dark:text-gray-400">Estimated Shipping</p>
+                            <p class="font-medium text-[#202124] dark:text-gray-200">FREE</p>
+                        </div>
+                        <div class="flex justify-between">
+                            <p class="text-gray-500 dark:text-gray-400">Estimated Tax</p>
+                            <p class="font-medium text-gray-500 dark:text-gray-400">Calculated at checkout</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-gray-200 dark:border-gray-700 my-4"></div>
+                    <div class="flex justify-between text-base font-bold">
+                        <p>Total</p>
+                        <p>$1198.99</p>
+                    </div>
+                    <button class="mt-6 w-full flex items-center justify-center rounded-lg h-12 px-6 bg-primary text-white text-base font-bold hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-colors">
+                        Proceed to Checkout
+                    </button>
+                    <a class="mt-4 w-full flex items-center justify-center rounded-lg h-12 px-6 bg-transparent text-primary text-base font-bold hover:bg-primary/10 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:ring-offset-2 dark:focus:ring-offset-background-dark transition-colors border border-primary" href="#">
+                        Continue Shopping
+                    </a>
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+</body></html>
