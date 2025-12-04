@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minor Project Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom Google-like color variables */
+        :root {
+            --google-blue: #4285F4;
+            --google-green: #34A853;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC05;
+            --bg-color: #f7f7f7;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: #202124;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden; 
+        }
+
+        /* Interactive Card Hover Effect */
+        .member-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .member-card:hover {
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Custom Button Style */
+        .project-btn {
+            background-color: var(--google-blue);
+            padding: 14px 40px;
+            font-size: 1.25rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.1s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .project-btn:hover {
+            background-color: #3b76d7;
+            transform: translateY(-2px);
+        }
+
+        /* Title Animation for Interactive Feel */
+        .project-title span {
+            display: inline-block;
+            transition: transform 0.3s ease-out;
+            cursor: default;
+        }
+
+        .project-title span:hover {
+            transform: translateY(-5px) rotate(2deg);
+        }
+
+        /* Subtle Background Gradients */
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(66, 133, 244, 0.1) 0%, rgba(52, 168, 83, 0.1) 100%);
+        }
+    </style>
+</head>
+<body class="gradient-bg">
+    <div class="p-8 max-w-5xl w-full bg-white rounded-2xl shadow-2xl transition duration-500 hover:shadow-3xl">
+
+        <h1 class="text-6xl font-extrabold mb-4 project-title">
+            <span style="color:var(--google-blue);">G</span>
+            <span style="color:var(--google-red);">o</span>
+            <span style="color:var(--google-yellow);">o</span>
+            <span style="color:var(--google-blue);">g</span>
+            <span style="color:var(--google-green);">l</span>
+            <span style="color:var(--google-red);">e</span>
+            <span class="text-gray-900 ml-2">Store</span>
+            <span class="text-gray-500">Clone</span>
+        </h1>
+
+        <p class="text-2xl font-light text-gray-700 mb-10">
+            A **Minor Group Project** Showcase
+        </p>
+        
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 mt-12">The Development Team</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12">
+            
+            <div class="member-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition duration-300 cursor-pointer">
+                <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://placehold.co/64x64/4285F4/ffffff?text=PV" alt="Prince Verma">
+                <p class="text-lg font-semibold text-gray-900">Prince Verma</p>
+                <p class="text-sm text-gray-500 font-medium">Homepage (Lead)</p>
+                <p class="text-xs text-gray-400">0714CS231087</p>
+            </div>
+            
+            <div class="member-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition duration-300 cursor-pointer">
+                <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://placehold.co/64x64/34A853/ffffff?text=RY" alt="Rohit Yadav">
+                <p class="text-lg font-semibold text-gray-900">Rohit Yadav</p>
+                <p class="text-sm text-gray-500 font-medium">Product List Page</p>
+                <p class="text-xs text-gray-400">0714CS231100</p>
+            </div>
+            
+            <div class="member-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition duration-300 cursor-pointer">
+                <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://placehold.co/64x64/FBBC05/ffffff?text=AG" alt="Aman Gayakwad">
+                <p class="text-lg font-semibold text-gray-900">Aman Gayakwad</p>
+                <p class="text-sm text-gray-500 font-medium">Product Details Page</p>
+                <p class="text-xs text-gray-400">0714CS231014</p>
+            </div>
+            
+            <div class="member-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition duration-300 cursor-pointer">
+                <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://placehold.co/64x64/EA4335/ffffff?text=SK" alt="Shezan Khan">
+                <p class="text-lg font-semibold text-gray-900">Shezan Khan</p>
+                <p class="text-sm text-gray-500 font-medium">Sign Up Page</p>
+                <p class="text-xs text-gray-400">0714CS231109</p>
+            </div>
+            
+            <div class="member-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition duration-300 cursor-pointer">
+                <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://placehold.co/64x64/7D3C98/ffffff?text=NS" alt="Nabil Shaikh">
+                <p class="text-lg font-semibold text-gray-900">Nabil Shaikh</p>
+                <p class="text-sm text-gray-500 font-medium">Cart Page</p>
+                <p class="text-xs text-gray-400">0714CS231071</p>
+            </div>
+
+            <div class="member-card bg-white p-4 rounded-xl shadow-lg border border-gray-100 transition duration-300 cursor-pointer">
+                <img class="w-16 h-16 rounded-full mx-auto mb-3" src="https://placehold.co/64x64/2C3E50/ffffff?text=PS" alt="Pranjay Sunehriya">
+                <p class="text-lg font-semibold text-gray-900">Pranjay Sunehriya</p>
+                <p class="text-sm text-gray-500 font-medium">Checkout Page</p>
+                <p class="text-xs text-gray-400">0714CS231084</p>
+            </div>
+
+        </div>
+
+        <a href="google_store_homepage.html" class="project-btn inline-block text-white">
+            View Project Homepage 
+        </a>
+
+        <p class="text-sm text-gray-400 mt-6">
+            Project created using HTML, CSS (Tailwind), and Vanilla JavaScript.
+        </p>
+    </div>
+
+    <script>
+        // Optional JavaScript for subtle dynamic greeting 
+        document.querySelector('.project-title').addEventListener('click', function() {
+            alert('Welcome! Click the button below to explore the project.');
+        });
+    </script>
+</body>
+</html>
