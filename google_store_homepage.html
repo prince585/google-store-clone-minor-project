@@ -61,11 +61,11 @@
                         <h2 class="text-xl font-bold leading-tight tracking-tight">Google Store</h2>
                     </div>
                     <nav class="hidden lg:flex items-center gap-8">
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Phones</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Watches</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Earbuds</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Smart Home</a>
-                        <a class="text-sm font-medium hover:text-primary transition-colors" href="#">Laptops</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="product_listing_page.html">Phones</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="product_listing_page.html">Watches</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="product_listing_page.html">Earbuds</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="product_listing_page.html">Smart Home</a>
+                        <a class="text-sm font-medium hover:text-primary transition-colors" href="product_listing_page.html">Laptops</a>
                     </nav>
                 </div>
                 <div class="flex flex-1 justify-end gap-2 sm:gap-4">
@@ -81,10 +81,11 @@
                         <button class="flex max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                             <span class="material-symbols-outlined text-slate-700 dark:text-slate-300">help</span>
                         </button>
-                        <button class="flex max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                        <button id="cartBtn" class="flex max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                             <span class="material-symbols-outlined text-slate-700 dark:text-slate-300">shopping_cart</span>
+                            <span id="cartCount" class="sr-only">0</span>
                         </button>
-                        <button class="flex max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+                        <button id="userDisplay" class="flex max-w-fit cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 w-10 bg-slate-200/50 dark:bg-slate-800/50 hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
                             <span class="material-symbols-outlined text-slate-700 dark:text-slate-300">account_circle</span>
                         </button>
                     </div>
@@ -107,9 +108,9 @@
                                     Experience the next generation of smartphones with cutting-edge camera technology and seamless integration.
                                 </h2>
                             </div>
-                            <button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
+                          <a href="product_listing_page.html"  <button class="mt-8 flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 px-6 bg-primary text-white text-base font-bold leading-normal tracking-wide hover:bg-primary/90 transition-colors">
                                 <span class="truncate">Shop Now</span>
-                            </button>
+                            </button> </a>
                         </div>
                     </div>
                     <!-- Featured Products Section -->
@@ -267,4 +268,9 @@
         </footer>
     </div>
 </div>
+
+<!-- wire auth & cart (files in same folder) -->
+<script src="auth.js" defer></script>
+<script src="cart.js" defer></script>
+
 </body></html>

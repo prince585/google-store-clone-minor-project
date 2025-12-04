@@ -62,11 +62,12 @@
                     <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
                         <span class="material-symbols-outlined">search</span>
                     </button>
-                    <button class="relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <button id="cartBtn" class="relative flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" title="Cart">
                         <span class="material-symbols-outlined">shopping_cart</span>
-                        <span class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">2</span>
+                        <!-- badge controlled by cart.js -->
+                        <span id="cartCount" class="absolute top-1 right-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-xs font-bold text-white">0</span>
                     </button>
-                    <button class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <button id="userDisplay" class="flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-200 dark:hover:bg-gray-700" title="Account">
                         <span class="material-symbols-outlined">account_circle</span>
                     </button>
                 </div>
@@ -165,4 +166,9 @@
         </div>
     </main>
 </div>
+
+<!-- wire auth & cart (files in same folder) -->
+<script src="auth.js" defer></script>
+<script src="cart.js" defer></script>
+
 </body></html>
