@@ -1,207 +1,458 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html class="light" lang="en"><head>
-    <meta charset="utf-8"/>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>Checkout - Google Store Clone</title>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <link href="https://fonts.googleapis.com" rel="preconnect"/>
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
-    <script>
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#1a73e8",
-                        "background-light": "#ffffff",
-                        "background-dark": "#101922",
-                        "text-primary-light": "#202124",
-                        "text-secondary-light": "#5f6368",
-                        "border-light": "#dadce0",
-                        "text-primary-dark": "#e8eaed",
-                        "text-secondary-dark": "#969ba1",
-                        "border-dark": "#3c4043",
-                        "error": "#d93025",
-                        "success": "#34a853"
-                    },
-                    fontFamily: {
-                        "display": ["Space Grotesk", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
+<html class="light" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>Checkout - Google Store Clone</title>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link
+            crossorigin=""
+            href="https://fonts.gstatic.com"
+            rel="preconnect"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+            rel="stylesheet"
+        />
+        <script>
+            tailwind.config = {
+                darkMode: "class",
+                theme: {
+                    extend: {
+                        colors: {
+                            primary: "#1a73e8",
+                            "background-light": "#ffffff",
+                            "background-dark": "#101922",
+                            "text-primary-light": "#202124",
+                            "text-secondary-light": "#5f6368",
+                            "border-light": "#dadce0",
+                            "text-primary-dark": "#e8eaed",
+                            "text-secondary-dark": "#969ba1",
+                            "border-dark": "#3c4043",
+                            error: "#d93025",
+                            success: "#34a853",
+                        },
+                        fontFamily: {
+                            display: ["Space Grotesk", "sans-serif"],
+                        },
+                        borderRadius: {
+                            DEFAULT: "0.25rem",
+                            lg: "0.5rem",
+                            xl: "0.75rem",
+                            full: "9999px",
+                        },
                     },
                 },
-            },
-        }
-    </script>
-    <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            font-size: 20px;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark">
-<div class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden">
-    <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-3">
-            <div class="flex items-center gap-4 text-text-primary-light dark:text-text-primary-dark">
-                <div class="size-6 text-primary">
-                    <svg fill="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"></path>
-                    </svg>
-                </div>
-                <h2 class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em]">Store</h2>
-            </div>
-            <div class="flex flex-1 justify-end gap-8">
-                <div class="flex items-center gap-9">
-                    <a class="text-primary text-sm font-medium leading-normal" href="#">Back to cart</a>
-                </div>
-            </div>
-        </header>
-        <main class="flex-1 px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-            <div class="max-w-7xl mx-auto">
-                <!-- BREADCRUMBS -->
-                <div class="flex flex-wrap gap-2 mb-8 justify-center lg:justify-start">
-                    <span class="text-primary text-base font-medium leading-normal">Shipping</span>
-                    <span class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">/</span>
-                    <span class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">Payment</span>
-                    <span class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">/</span>
-                    <span class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal">Review</span>
-                </div>
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12">
-                    <!-- LEFT COLUMN: CHECKOUT STEPS -->
-                    <div class="lg:col-span-2">
-                        <div class="flex flex-col gap-4">
-                            <!-- ACCORDIONS -->
-                            <details class="flex flex-col border border-border-light dark:border-border-dark rounded-lg group" open="">
-                                <summary class="flex cursor-pointer items-center justify-between gap-6 p-4 md:p-6">
-                                    <p class="text-lg font-medium leading-normal">1. Shipping address</p>
-                                    <div class="text-text-primary-light dark:text-text-primary-dark group-open:rotate-180 transition-transform"><span class="material-symbols-outlined">expand_more</span></div>
-                                </summary>
-                                <div class="px-4 md:px-6 pb-6 border-t border-t-border-light dark:border-t-border-dark">
-                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
-                                        <!-- TEXTFIELD -->
-                                        <label class="flex flex-col min-w-40 flex-1 sm:col-span-2">
-                                            <p class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark">Full name</p>
-                                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal" placeholder="Enter your full name" value=""/>
-                                        </label>
-                                        <!-- TEXTFIELD -->
-                                        <label class="flex flex-col min-w-40 flex-1 sm:col-span-2">
-                                            <p class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark">Street address</p>
-                                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal" placeholder="Enter your street address" value=""/>
-                                        </label>
-                                        <label class="flex flex-col min-w-40 flex-1">
-                                            <p class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark">City</p>
-                                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal" placeholder="City" value=""/>
-                                        </label>
-                                        <label class="flex flex-col min-w-40 flex-1">
-                                            <p class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark">State / Province</p>
-                                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal" placeholder="State / Province" value=""/>
-                                        </label>
-                                        <label class="flex flex-col min-w-40 flex-1">
-                                            <p class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark">ZIP / Postal code</p>
-                                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal" placeholder="ZIP / Postal code" value=""/>
-                                        </label>
-                                        <label class="flex flex-col min-w-40 flex-1">
-                                            <p class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark">Phone number</p>
-                                            <input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal" placeholder="Phone number" value=""/>
-                                        </label>
+            };
+        </script>
+        <style>
+            .material-symbols-outlined {
+                font-variation-settings:
+                    "FILL" 0,
+                    "wght" 400,
+                    "GRAD" 0,
+                    "opsz" 24;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body
+        class="bg-background-light dark:bg-background-dark font-display text-text-primary-light dark:text-text-primary-dark"
+    >
+        <div
+            class="relative flex h-auto min-h-screen w-full flex-col group/design-root overflow-x-hidden"
+        >
+            <div class="layout-container flex h-full grow flex-col">
+                <header
+                    class="flex items-center justify-between whitespace-nowrap border-b border-solid border-border-light dark:border-border-dark px-6 md:px-10 py-3"
+                >
+                    <div
+                        class="flex items-center gap-4 text-text-primary-light dark:text-text-primary-dark"
+                    >
+                        <div class="size-6 text-primary">
+                            <svg
+                                fill="currentColor"
+                                viewbox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <path
+                                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"
+                                ></path>
+                            </svg>
+                        </div>
+                        <h2
+                            class="text-text-primary-light dark:text-text-primary-dark text-lg font-bold leading-tight tracking-[-0.015em]"
+                        >
+                            Store
+                        </h2>
+                    </div>
+                    <div class="flex flex-1 justify-end gap-8">
+                        <div class="flex items-center gap-9">
+                            <a
+                                class="text-primary text-sm font-medium leading-normal"
+                                href="shopping_cart_page.html"
+                                >Back to cart</a
+                            >
+                        </div>
+                    </div>
+                </header>
+                <main class="flex-1 px-4 sm:px-6 lg:px-8 py-8 md:py-12">
+                    <div class="max-w-7xl mx-auto">
+                        <!-- BREADCRUMBS -->
+                        <div
+                            class="flex flex-wrap gap-2 mb-8 justify-center lg:justify-start"
+                        >
+                            <span
+                                class="text-primary text-base font-medium leading-normal"
+                                >Shipping</span
+                            >
+                            <span
+                                class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal"
+                                >/</span
+                            >
+                            <span
+                                class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal"
+                                >Payment</span
+                            >
+                            <span
+                                class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal"
+                                >/</span
+                            >
+                            <span
+                                class="text-text-secondary-light dark:text-text-secondary-dark text-base font-medium leading-normal"
+                                >Review</span
+                            >
+                        </div>
+                        <div
+                            class="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-12"
+                        >
+                            <!-- LEFT COLUMN: CHECKOUT STEPS -->
+                            <div class="lg:col-span-2">
+                                <div class="flex flex-col gap-4">
+                                    <!-- ACCORDIONS -->
+                                    <details
+                                        class="flex flex-col border border-border-light dark:border-border-dark rounded-lg group"
+                                        open=""
+                                    >
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-6 p-4 md:p-6"
+                                        >
+                                            <p
+                                                class="text-lg font-medium leading-normal"
+                                            >
+                                                1. Shipping address
+                                            </p>
+                                            <div
+                                                class="text-text-primary-light dark:text-text-primary-dark group-open:rotate-180 transition-transform"
+                                            >
+                                                <span
+                                                    class="material-symbols-outlined"
+                                                    >expand_more</span
+                                                >
+                                            </div>
+                                        </summary>
+                                        <div
+                                            class="px-4 md:px-6 pb-6 border-t border-t-border-light dark:border-t-border-dark"
+                                        >
+                                            <div
+                                                class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6"
+                                            >
+                                                <!-- TEXTFIELD -->
+                                                <label
+                                                    class="flex flex-col min-w-40 flex-1 sm:col-span-2"
+                                                >
+                                                    <p
+                                                        class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark"
+                                                    >
+                                                        Full name
+                                                    </p>
+                                                    <input
+                                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal"
+                                                        placeholder="Enter your full name"
+                                                        value=""
+                                                    />
+                                                </label>
+                                                <!-- TEXTFIELD -->
+                                                <label
+                                                    class="flex flex-col min-w-40 flex-1 sm:col-span-2"
+                                                >
+                                                    <p
+                                                        class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark"
+                                                    >
+                                                        Street address
+                                                    </p>
+                                                    <input
+                                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal"
+                                                        placeholder="Enter your street address"
+                                                        value=""
+                                                    />
+                                                </label>
+                                                <label
+                                                    class="flex flex-col min-w-40 flex-1"
+                                                >
+                                                    <p
+                                                        class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark"
+                                                    >
+                                                        City
+                                                    </p>
+                                                    <input
+                                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal"
+                                                        placeholder="City"
+                                                        value=""
+                                                    />
+                                                </label>
+                                                <label
+                                                    class="flex flex-col min-w-40 flex-1"
+                                                >
+                                                    <p
+                                                        class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark"
+                                                    >
+                                                        State / Province
+                                                    </p>
+                                                    <input
+                                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal"
+                                                        placeholder="State / Province"
+                                                        value=""
+                                                    />
+                                                </label>
+                                                <label
+                                                    class="flex flex-col min-w-40 flex-1"
+                                                >
+                                                    <p
+                                                        class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark"
+                                                    >
+                                                        ZIP / Postal code
+                                                    </p>
+                                                    <input
+                                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal"
+                                                        placeholder="ZIP / Postal code"
+                                                        value=""
+                                                    />
+                                                </label>
+                                                <label
+                                                    class="flex flex-col min-w-40 flex-1"
+                                                >
+                                                    <p
+                                                        class="text-sm font-medium leading-normal pb-2 text-text-secondary-light dark:text-text-secondary-dark"
+                                                    >
+                                                        Phone number
+                                                    </p>
+                                                    <input
+                                                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary-light dark:text-text-primary-dark focus:outline-0 focus:ring-2 focus:ring-primary/50 border border-border-light dark:border-border-dark bg-background-light dark:bg-background-dark/20 h-12 placeholder:text-text-secondary-light dark:placeholder:text-text-secondary-dark px-3 text-base font-normal leading-normal"
+                                                        placeholder="Phone number"
+                                                        value=""
+                                                    />
+                                                </label>
+                                            </div>
+                                            <h3
+                                                class="text-md font-medium mt-8 mb-4"
+                                            >
+                                                Shipping method
+                                            </h3>
+                                            <div class="space-y-3">
+                                                <label
+                                                    class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/30"
+                                                >
+                                                    <input
+                                                        checked=""
+                                                        class="form-radio text-primary focus:ring-primary/50"
+                                                        name="shipping"
+                                                        type="radio"
+                                                    />
+                                                    <div class="ml-4 flex-grow">
+                                                        <p class="font-medium">
+                                                            Standard Shipping
+                                                        </p>
+                                                        <p
+                                                            class="text-sm text-text-secondary-light dark:text-text-secondary-dark"
+                                                        >
+                                                            4-7 business days
+                                                        </p>
+                                                    </div>
+                                                    <span class="font-medium"
+                                                        >$5.00</span
+                                                    >
+                                                </label>
+                                                <label
+                                                    class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/30"
+                                                >
+                                                    <input
+                                                        class="form-radio text-primary focus:ring-primary/50"
+                                                        name="shipping"
+                                                        type="radio"
+                                                    />
+                                                    <div class="ml-4 flex-grow">
+                                                        <p class="font-medium">
+                                                            Express Shipping
+                                                        </p>
+                                                        <p
+                                                            class="text-sm text-text-secondary-light dark:text-text-secondary-dark"
+                                                        >
+                                                            1-3 business days
+                                                        </p>
+                                                    </div>
+                                                    <span class="font-medium"
+                                                        >$15.00</span
+                                                    >
+                                                </label>
+                                            </div>
+                                            <button
+                                                class="mt-8 w-full sm:w-auto bg-primary text-white font-medium py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors"
+                                            >
+                                                Continue to Payment
+                                            </button>
+                                        </div>
+                                    </details>
+                                    <details
+                                        class="flex flex-col border border-border-light dark:border-border-dark rounded-lg group"
+                                    >
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-6 p-4 md:p-6"
+                                        >
+                                            <p
+                                                class="text-lg font-medium leading-normal text-text-secondary-light dark:text-text-secondary-dark"
+                                            >
+                                                2. Payment method
+                                            </p>
+                                            <div
+                                                class="text-text-primary-light dark:text-text-primary-dark group-open:rotate-180 transition-transform"
+                                            >
+                                                <span
+                                                    class="material-symbols-outlined"
+                                                    >expand_more</span
+                                                >
+                                            </div>
+                                        </summary>
+                                        <!-- Payment Content Here -->
+                                    </details>
+                                    <details
+                                        class="flex flex-col border border-border-light dark:border-border-dark rounded-lg group"
+                                    >
+                                        <summary
+                                            class="flex cursor-pointer items-center justify-between gap-6 p-4 md:p-6"
+                                        >
+                                            <p
+                                                class="text-lg font-medium leading-normal text-text-secondary-light dark:text-text-secondary-dark"
+                                            >
+                                                3. Review your order
+                                            </p>
+                                            <div
+                                                class="text-text-primary-light dark:text-text-primary-dark group-open:rotate-180 transition-transform"
+                                            >
+                                                <span
+                                                    class="material-symbols-outlined"
+                                                    >expand_more</span
+                                                >
+                                            </div>
+                                        </summary>
+                                        <!-- Review Content Here -->
+                                    </details>
+                                </div>
+                            </div>
+                            <!-- RIGHT COLUMN: ORDER SUMMARY -->
+                            <div class="lg:col-span-1">
+                                <div
+                                    class="bg-background-light dark:bg-background-dark/20 border border-border-light dark:border-border-dark rounded-lg p-6 sticky top-8"
+                                >
+                                    <h2 class="text-xl font-bold mb-6">
+                                        Order summary
+                                    </h2>
+                                    <div class="space-y-4">
+                                        <div class="flex items-center gap-4">
+                                            <img
+                                                alt="Pixel phone in a box"
+                                                class="w-16 h-16 object-cover rounded-lg bg-gray-200"
+                                                data-alt="Pixel phone in a box"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc17KPe5KYTsxbwRFpArP1LcqIQSzZujzRUFEJOd-DdkunHmIrhe194_A8Vruyt8OgCki4eqmYcGttn1FqV4U60wCPB2sMaflriw4yRfA1L0cngTJ1TbN4H3cOqmZDMPu1kD6tpBuv-xy_hPndy0keA-FlsB5pgbozaddT6Yv7admEZiFu6FeDZ-hdpdV7avoz7HyIAeC4Ee1hmsSKRNWaWMKVkFbmG3rAc_o8I7E3GkDxVPBHvoI1W7-0IAEvrWqzqdbL1JDVdko"
+                                            />
+                                            <div class="flex-grow">
+                                                <p class="font-medium">
+                                                    Pixel 8 Pro
+                                                </p>
+                                                <p
+                                                    class="text-sm text-text-secondary-light dark:text-text-secondary-dark"
+                                                >
+                                                    Qty: 1
+                                                </p>
+                                            </div>
+                                            <span class="font-medium"
+                                                >$999.00</span
+                                            >
+                                        </div>
+                                        <div class="flex items-center gap-4">
+                                            <img
+                                                alt="Pixel Buds Pro earbuds"
+                                                class="w-16 h-16 object-cover rounded-lg bg-gray-200"
+                                                data-alt="Pixel Buds Pro earbuds"
+                                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7sv7sx_xyeWIPrXGq9U_8atesHfmd4W6xApA1DinFYo3HwzXQgZpNEl4KATDiHpc30OX9HcfYPUJgb_NCLo7S-ErVzTqBa8Wqhdc1LdJvbvmW6LWykIzfrRSL0nFp6oKAJnJskdkWMWcbWHhdtmUS_4sktctzf03ZzLHTXpE1uKFMOJ5J8T1_g40r1NO8eY-yxaSXiqU7xZOJVl4_PifYePpYC4y9z44VEXusn-ZN__wcGCgHgvyHxQwuwlP-IEVFJhZhufe60nA"
+                                            />
+                                            <div class="flex-grow">
+                                                <p class="font-medium">
+                                                    Pixel Buds Pro
+                                                </p>
+                                                <p
+                                                    class="text-sm text-text-secondary-light dark:text-text-secondary-dark"
+                                                >
+                                                    Qty: 1
+                                                </p>
+                                            </div>
+                                            <span class="font-medium"
+                                                >$199.99</span
+                                            >
+                                        </div>
                                     </div>
-                                    <h3 class="text-md font-medium mt-8 mb-4">Shipping method</h3>
+                                    <div
+                                        class="border-t border-border-light dark:border-border-dark my-6"
+                                    ></div>
                                     <div class="space-y-3">
-                                        <label class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/30">
-                                            <input checked="" class="form-radio text-primary focus:ring-primary/50" name="shipping" type="radio"/>
-                                            <div class="ml-4 flex-grow">
-                                                <p class="font-medium">Standard Shipping</p>
-                                                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">4-7 business days</p>
-                                            </div>
-                                            <span class="font-medium">$5.00</span>
-                                        </label>
-                                        <label class="flex items-center p-4 border border-border-light dark:border-border-dark rounded-lg cursor-pointer has-[:checked]:border-primary has-[:checked]:ring-2 has-[:checked]:ring-primary/30">
-                                            <input class="form-radio text-primary focus:ring-primary/50" name="shipping" type="radio"/>
-                                            <div class="ml-4 flex-grow">
-                                                <p class="font-medium">Express Shipping</p>
-                                                <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">1-3 business days</p>
-                                            </div>
-                                            <span class="font-medium">$15.00</span>
-                                        </label>
+                                        <div
+                                            class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark"
+                                        >
+                                            <span>Subtotal</span>
+                                            <span>$1198.99</span>
+                                        </div>
+                                        <div
+                                            class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark"
+                                        >
+                                            <span>Shipping</span>
+                                            <span>$5.00</span>
+                                        </div>
+                                        <div
+                                            class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark"
+                                        >
+                                            <span>Estimated taxes</span>
+                                            <span>$90.32</span>
+                                        </div>
                                     </div>
-                                    <button class="mt-8 w-full sm:w-auto bg-primary text-white font-medium py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors">Continue to Payment</button>
-                                </div>
-                            </details>
-                            <details class="flex flex-col border border-border-light dark:border-border-dark rounded-lg group">
-                                <summary class="flex cursor-pointer items-center justify-between gap-6 p-4 md:p-6">
-                                    <p class="text-lg font-medium leading-normal text-text-secondary-light dark:text-text-secondary-dark">2. Payment method</p>
-                                    <div class="text-text-primary-light dark:text-text-primary-dark group-open:rotate-180 transition-transform"><span class="material-symbols-outlined">expand_more</span></div>
-                                </summary>
-                                <!-- Payment Content Here -->
-                            </details>
-                            <details class="flex flex-col border border-border-light dark:border-border-dark rounded-lg group">
-                                <summary class="flex cursor-pointer items-center justify-between gap-6 p-4 md:p-6">
-                                    <p class="text-lg font-medium leading-normal text-text-secondary-light dark:text-text-secondary-dark">3. Review your order</p>
-                                    <div class="text-text-primary-light dark:text-text-primary-dark group-open:rotate-180 transition-transform"><span class="material-symbols-outlined">expand_more</span></div>
-                                </summary>
-                                <!-- Review Content Here -->
-                            </details>
-                        </div>
-                    </div>
-                    <!-- RIGHT COLUMN: ORDER SUMMARY -->
-                    <div class="lg:col-span-1">
-                        <div class="bg-background-light dark:bg-background-dark/20 border border-border-light dark:border-border-dark rounded-lg p-6 sticky top-8">
-                            <h2 class="text-xl font-bold mb-6">Order summary</h2>
-                            <div class="space-y-4">
-                                <div class="flex items-center gap-4">
-                                    <img alt="Pixel phone in a box" class="w-16 h-16 object-cover rounded-lg bg-gray-200" data-alt="Pixel phone in a box" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc17KPe5KYTsxbwRFpArP1LcqIQSzZujzRUFEJOd-DdkunHmIrhe194_A8Vruyt8OgCki4eqmYcGttn1FqV4U60wCPB2sMaflriw4yRfA1L0cngTJ1TbN4H3cOqmZDMPu1kD6tpBuv-xy_hPndy0keA-FlsB5pgbozaddT6Yv7admEZiFu6FeDZ-hdpdV7avoz7HyIAeC4Ee1hmsSKRNWaWMKVkFbmG3rAc_o8I7E3GkDxVPBHvoI1W7-0IAEvrWqzqdbL1JDVdko"/>
-                                    <div class="flex-grow">
-                                        <p class="font-medium">Pixel 8 Pro</p>
-                                        <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Qty: 1</p>
+                                    <div
+                                        class="border-t border-border-light dark:border-border-dark my-6"
+                                    ></div>
+                                    <div
+                                        class="flex justify-between font-bold text-lg"
+                                    >
+                                        <span>Total</span>
+                                        <span>$1294.31</span>
                                     </div>
-                                    <span class="font-medium">$999.00</span>
-                                </div>
-                                <div class="flex items-center gap-4">
-                                    <img alt="Pixel Buds Pro earbuds" class="w-16 h-16 object-cover rounded-lg bg-gray-200" data-alt="Pixel Buds Pro earbuds" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7sv7sx_xyeWIPrXGq9U_8atesHfmd4W6xApA1DinFYo3HwzXQgZpNEl4KATDiHpc30OX9HcfYPUJgb_NCLo7S-ErVzTqBa8Wqhdc1LdJvbvmW6LWykIzfrRSL0nFp6oKAJnJskdkWMWcbWHhdtmUS_4sktctzf03ZzLHTXpE1uKFMOJ5J8T1_g40r1NO8eY-yxaSXiqU7xZOJVl4_PifYePpYC4y9z44VEXusn-ZN__wcGCgHgvyHxQwuwlP-IEVFJhZhufe60nA"/>
-                                    <div class="flex-grow">
-                                        <p class="font-medium">Pixel Buds Pro</p>
-                                        <p class="text-sm text-text-secondary-light dark:text-text-secondary-dark">Qty: 1</p>
+                                    <div class="mt-8">
+                                        <button
+                                            class="w-full bg-primary text-white font-medium py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed"
+                                            disabled=""
+                                        >
+                                            Place Order
+                                        </button>
                                     </div>
-                                    <span class="font-medium">$199.99</span>
                                 </div>
-                            </div>
-                            <div class="border-t border-border-light dark:border-border-dark my-6"></div>
-                            <div class="space-y-3">
-                                <div class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark">
-                                    <span>Subtotal</span>
-                                    <span>$1198.99</span>
-                                </div>
-                                <div class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark">
-                                    <span>Shipping</span>
-                                    <span>$5.00</span>
-                                </div>
-                                <div class="flex justify-between text-text-secondary-light dark:text-text-secondary-dark">
-                                    <span>Estimated taxes</span>
-                                    <span>$90.32</span>
-                                </div>
-                            </div>
-                            <div class="border-t border-border-light dark:border-border-dark my-6"></div>
-                            <div class="flex justify-between font-bold text-lg">
-                                <span>Total</span>
-                                <span>$1294.31</span>
-                            </div>
-                            <div class="mt-8">
-                                <button class="w-full bg-primary text-white font-medium py-3 px-6 rounded-lg hover:bg-primary/90 transition-colors disabled:bg-gray-300 dark:disabled:bg-gray-600 disabled:cursor-not-allowed" disabled="">Place Order</button>
                             </div>
                         </div>
                     </div>
-                </div>
+                </main>
             </div>
-        </main>
-    </div>
-</div>
-</body></html>
+        </div>
+    </body>
+</html>
